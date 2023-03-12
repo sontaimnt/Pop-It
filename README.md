@@ -25,3 +25,7 @@ A Pop It game written in tkinter
 # How to play?
 
 Just like in a normal pop it you pop the circles instead here you need to click the button and the button usually becomes dark indicating it is popped. I could not completely replicate the UI but i tried my best to replicate pop it
+
+# Web Version:-
+
+Thanks @AdvikAggarwal for making it to the web, he will upload very soon
