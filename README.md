@@ -9,6 +9,7 @@ A Pop It game written in tkinter
 - Made with X11 Colors(no external colors)
 - 3x3 , 4x4 , 5x5 Game Mode
 - Triangular Pop-Its(As of 0.1 Build2)
+- Pluck(Luck Determiner) a game included
 
 # Look:-
 
