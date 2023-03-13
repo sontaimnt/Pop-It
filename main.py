@@ -1,5 +1,6 @@
 from tkinter import *
-from tkinter.messagebox import showinfo
+from tkinter.messagebox import showinfo , showerror
+from random import randint 
 import colors
 
 root = Tk()
@@ -17,17 +18,23 @@ game.pack()
 starttext = Label(text="\n \n Pop It \n \n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 16))
 starttext.pack(in_=game)
 
-buttonplay = Button(text="Play" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
-buttonplay.pack(in_=game)
+buttonplayt = Button(text="Play(with toys)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
+buttonplayt.pack(in_=game)
 
 n1 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
 n1.pack(in_=game)
 
-buttonab = Button(text="About"  , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1" , command=lambda:showinfo("About" , "Pop-It 0.1 Build 2 \n https://github.com/sontaimnt/Pop-It \n \n Copyright sontaimnt 2023"))
+buttonplayg = Button(text="Play(with games)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
+buttonplayg.pack(in_=game)
+
+n2 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
+n2.pack(in_=game)
+
+buttonab = Button(text="About"  , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1" , command=lambda:showinfo("About" , "Pop-It 0.1 Build 3 \n https://github.com/sontaimnt/Pop-It \n \n Copyright sontaimnt 2023"))
 buttonab.pack(in_=game)
 
-n2 = Label(text="\n \n \n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 12))
-n2.pack(in_=game)
+n6 = Label(text="\n\n\n" ,  bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 8))
+n6.pack(in_=game)
 
 buttonex = Button(text="Exit"  , bg="brown1" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16 , "bold") , width=15 , command=lambda:root.destroy() , relief='flat')
 buttonex.pack(in_=game)
@@ -38,6 +45,8 @@ button55 = Button(text="5x5" , bg="gray10" , fg="antiquewhite1" , font=("Source 
 button33t = Button(text="3x3(Triangular)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
 button44t = Button(text="4x4(Triangular)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
 button55t = Button(text="5x5(Triangular)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
+
+buttonpluck = Button(text="Pluck(Luck Determiner)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
 
 n3 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
 n4 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
@@ -74,7 +83,9 @@ def play_start():
     n2.pack_forget()
     buttonab.pack_forget()
     buttonex.pack_forget()
-    buttonplay.pack_forget()
+    buttonplayt.pack_forget()
+    buttonplayg.pack_forget()
+    n6.pack_forget()
     starttext.configure(text="\n Select the toy for playing \n ")
     button33.pack()
     n1.pack()
@@ -88,6 +99,18 @@ def play_start():
     button44t.pack()
     n5.pack()
     button55t.pack()
+
+def play_start_game():
+    n1.pack_forget()
+    n2.pack_forget()
+    buttonab.pack_forget()
+    buttonex.pack_forget()
+    buttonplayt.pack_forget()
+    buttonplayg.pack_forget()
+    n6.pack_forget()
+    starttext.configure(text="\n Select the game for playing \n ")
+    buttonpluck.configure(width=22 , command=pweep_frame)
+    buttonpluck.pack()
 
 def three_three():
     global b1 , b2 , b3 , b4 , b5 , b6 , b7 , b8 , b9 , b1p , b2p , b3p , b4p , b5p , b6p , b7p , b8p , b9p
@@ -402,6 +425,54 @@ def five_five_t():
     b14.pack(in_=f5 , side="left")
     b15.pack(in_=f5 , side="left")
 
+def pweep_frame():
+    global b1 , b2 , b3 , b4 , b5 , b6 
+    buttonpluck.pack_forget()
+    starttext.configure(text="\n Click the buttons to know your luck \n" , font=("Source Code Pro" , 12))
+    button33t.pack_forget()
+    button33.pack_forget()
+    button44.pack_forget()
+    button55.pack_forget()
+    button33t.pack_forget()
+    button44t.pack_forget()
+    button55t.pack_forget()
+    n1.pack_forget()
+    n2.pack_forget()
+    n3.pack_forget()
+    n4.pack_forget()
+    n5.pack_forget()
+    gframe = Frame(root , width=345 , height=345 , bg="grey10")
+    gframe.pack()
+    f1 = Frame(root , width=345 , height=115 , bg=colors.colorsred[0])
+    f2 = Frame(root , width=345 , height=115 , bg=colors.colorsyellow[0])
+    f3 = Frame(root , width=345 , height=115 , bg=colors.colorsblue[0])
+    f1.pack(in_=gframe)
+    f2.pack(in_=gframe)
+    f3.pack(in_=gframe)
+    b1 = Button(root , width=12 , height=5 , bg=colors.colorsred[0] , command=mines)
+    b2 = Button(root , width=12 , height=5 , bg=colors.colorsyellow[0] , command=mines)
+    b3 = Button(root , width=12 , height=5 , bg=colors.colorsyellow[0] , command=mines)
+    b4 = Button(root , width=12 , height=5 , bg=colors.colorsblue[0] , command=mines) 
+    b5 = Button(root , width=12 , height=5 , bg=colors.colorsblue[0] , command=mines)
+    b6 = Button(root , width=12 , height=5 , bg=colors.colorsblue[0] , command=mines)
+    b1.pack(in_=f1 , side="left")
+    b2.pack(in_=f2 , side="left")
+    b3.pack(in_=f2 , side="left")
+    b4.pack(in_=f3 , side="left")
+    b5.pack(in_=f3 , side="left")
+    b6.pack(in_=f3 , side="left")
+
+def mines():
+    assignednum = randint(1 , 100)
+    if assignednum == 1:
+        showinfo("Congratulations" , "Your luck is extremely good")
+    elif assignednum in range(2 , 10):
+        showinfo("Congratulations" , "Your luck is good")
+    elif assignednum in range(11 , 75):
+        showinfo("Ok" , "Your luck is moderate")
+    else:
+        showerror("Error" , "Better luck next time")
+
 def logic(button: Button , array: list , color: list):
     if array[len(array)-1] == False:
         array.append(True)
@@ -410,7 +481,8 @@ def logic(button: Button , array: list , color: list):
         array.append(False)
         button.configure(bg=color[0])
 
-buttonplay.configure(command=play_start)
+buttonplayt.configure(command=play_start)
+buttonplayg.configure(command=play_start_game)
 button33.configure(command=three_three)
 button44.configure(command=four_four)
 button55.configure(command=five_five)
