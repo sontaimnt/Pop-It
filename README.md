@@ -10,18 +10,9 @@ A Pop It game written in tkinter
 - 3x3 , 4x4 , 5x5 Game Mode
 - Triangular Pop-Its(As of 0.1 Build2)
 
-# Screenshots:-
+# Look:-
 
-## 3x3:- 
-![master](img/33.png)
-
-
-## 4x4:- 
-![master](img/44.png)
-
-
-## 5x5:- 
-![master](img/55.png)
+![master](img/pop-it-collage.png)
 
 # How to play?
 
