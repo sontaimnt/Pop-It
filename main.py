@@ -30,7 +30,7 @@ buttonplayg.pack(in_=game)
 n2 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
 n2.pack(in_=game)
 
-buttonab = Button(text="About"  , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1" , command=lambda:showinfo("About" , "Pop-It 0.1 Build 3 \n https://github.com/sontaimnt/Pop-It \n \n Copyright sontaimnt 2023"))
+buttonab = Button(text="About"  , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1" , command=lambda:showinfo("About" , "Pop-It Nightly \n https://github.com/sontaimnt/Pop-It \n \n Copyright sontaimnt 2023"))
 buttonab.pack(in_=game)
 
 n6 = Label(text="\n\n\n" ,  bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 8))
@@ -47,6 +47,7 @@ button44t = Button(text="4x4(Triangular)" , bg="gray10" , fg="antiquewhite1" , f
 button55t = Button(text="5x5(Triangular)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
 
 buttonpluck = Button(text="Pluck(Luck Determiner)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
+buttonuc = Button(text="Pange(3 Challenges)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
 
 n3 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
 n4 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
@@ -111,6 +112,9 @@ def play_start_game():
     starttext.configure(text="\n Select the game for playing \n ")
     buttonpluck.configure(width=22 , command=pweep_frame)
     buttonpluck.pack()
+    n3.pack()
+    buttonuc.configure(width=22)
+    buttonuc.pack()
 
 def three_three():
     global b1 , b2 , b3 , b4 , b5 , b6 , b7 , b8 , b9 , b1p , b2p , b3p , b4p , b5p , b6p , b7p , b8p , b9p
@@ -427,15 +431,10 @@ def five_five_t():
 
 def pweep_frame():
     global b1 , b2 , b3 , b4 , b5 , b6 
+    buttonuc.pack_forget()
+    n3.pack_forget()
     buttonpluck.pack_forget()
     starttext.configure(text="\n Click the buttons to know your luck \n" , font=("Source Code Pro" , 12))
-    button33t.pack_forget()
-    button33.pack_forget()
-    button44.pack_forget()
-    button55.pack_forget()
-    button33t.pack_forget()
-    button44t.pack_forget()
-    button55t.pack_forget()
     n1.pack_forget()
     n2.pack_forget()
     n3.pack_forget()
@@ -462,6 +461,171 @@ def pweep_frame():
     b5.pack(in_=f3 , side="left")
     b6.pack(in_=f3 , side="left")
 
+def pange_frame():
+    global f3 , f4 , b1 , b2 , b3
+    buttonuc.pack_forget()
+    n3.pack_forget()
+    buttonpluck.pack_forget()
+    starttext.configure(text="\n Click the buttons to accept a challenge \n \n\n\n" , font=("Source Code Pro" , 12))
+    n1.pack_forget()
+    n2.pack_forget()
+    n3.pack_forget()
+    n4.pack_forget()
+    n5.pack_forget()
+    grame = Frame(width=345 , height=172 , bg="grey10")
+    grame.pack()
+    f1 = Frame(width=345 , height=86)
+    f2 = Frame(width=345 , height=86)
+    f3 = Frame(width=345 , height=115 , bg="gray10")
+    f4 = Frame(width=345 , height=86 , bg="gray10")
+    f1.pack(in_=grame)
+    f2.pack(in_=grame)
+    b1 = Button(root , width=6 , height=3 , bg=colors.colorsred[0] , command=palin_gui)
+    b2 = Button(root , width=6 , height=3 , bg=colors.colorsorange[0] , state="disabled")
+    b3 = Button(root , width=6 , height=3 , bg=colors.colorsorange[0] , state="disabled")
+    b1.pack(in_=f1)
+    b2.pack(in_=f2, side=LEFT)
+    b3.pack(in_=f2 , side=LEFT)
+    
+def palin_gui():
+    global sbmt , lab , entry
+    f3.pack()
+    lab = Label(root , text="Palindrome:-" , bg="grey10" , fg="antiquewhite" , font=("Source Code Pro" , 12))
+    sbmt = Button(root , text="Submit" , bg="slateblue3" , fg="antiquewhite" , width=6 , font=("Source Code Pro" , 12) , command=lambda:pange_games.palindrome(entry.get() , b1 , colors.colorsred)) 
+    entry = Entry(root , bg="grey15" , fg="antiquewhite" , insertbackground="antiquewhite" , font=("Source Code Pro" , 12))
+    lab.pack(side="left")
+    entry.pack(side="left")
+    sbmt.pack(side="left")
+
+def arithmetic_gui():
+    global sbmt , lab , entry
+    test = pange_games.arithmetic_question()
+    f3.pack()
+    lab = Label(root , text=f"{test[0]} {test[2]} {test[1]} =" , bg="grey10" , fg="antiquewhite" , font=("Source Code Pro" , 12))
+    sbmt = Button(root , text="Submit" , bg="slateblue3" , fg="antiquewhite" , width=6 , font=("Source Code Pro" , 12) , command=lambda:pange_games.check_arithmetic(test[0] , test[1] , test[2]  , entry.get() , b2 , colors.colorsyellow)) 
+    entry = Entry(root , bg="grey15" , fg="antiquewhite" , insertbackground="antiquewhite" , font=("Source Code Pro" , 12))
+    lab.pack(side="left")
+    entry.pack(side="left")
+    sbmt.pack(side="left")
+
+def guess_gui():
+    global sbmt , lab , entry
+    f4.pack()
+    test = pange_games.guess_question()
+    lab = Label(root , text=f"{test[0]} \n Guess color =" , bg="grey10" , fg="antiquewhite" , font=("Source Code Pro" , 12))
+    sbmt = Button(root , text="Sub\nmit" , bg="slateblue3" , fg="antiquewhite" , width=6 , height=3, font=("Source Code Pro" , 12) , command=lambda:pange_games.check_question_guess(entry.get() , test[0][test[1]] , b3 , color=colors.colorsyellow)) 
+    entry = Entry(root , bg="grey15" , fg="antiquewhite" , insertbackground="antiquewhite" , font=("Source Code Pro" , 12))
+    lab.pack(side="left")
+    entry.pack(side="left")
+    sbmt.pack(side="left")
+
+class pange_games():
+    def arithmetic_question():
+        n1 = randint(1 , 10)
+        n2 = randint(1 , 10)
+        opr = randint(1 , 3)
+        if opr == 1:
+            operation = "+"
+        elif opr == 2:
+            operation = "-"
+        elif opr == 3:
+            operation = '*'
+
+        return [n1 , n2 , operation]
+        
+    def guess_question():
+        colos = ["red" , "blue"]
+        guess = randint(0 , 1)
+
+        return [colos , guess]
+    
+    def check_question_guess(choice: str , ans: str , button: Button , color: list):
+        f4.pack_forget()
+        lab.pack_forget()
+        entry.pack_forget()
+        sbmt.pack_forget()
+        if choice == "":
+            showerror("Error" , "No choice detected")
+        else:
+            if choice == ans:
+                showinfo("Congratulations" , "You have passed")
+                button.configure(bg=color[1] , state="disabled")
+                guessd = True
+                if palind == True and guessd == True and arithd == True:
+                    showinfo("Congratulations" , "You successfully popped the pop-it")
+            else:
+                showerror("Error" , "Answer is incorrect")
+                button.configure(bg=color[1] , state="disabled")
+                guessd = False
+                showerror("Error" , "Pop It was not popped sucessfully")
+
+
+    def check_arithmetic(n1: int , n2: int , operation: str , ans: str , button: Button , color: list):
+        global arithd
+        f3.pack_forget()
+        lab.pack_forget()
+        entry.pack_forget()
+        sbmt.pack_forget()
+        if ans == "":
+            showerror("Error" , "No answer detected")
+        else:
+            if operation == "+":
+                if not ans == str(n1+n2):
+                    showerror("Error" , "Answer is incorrect")
+                    button.configure(bg=color[1] , state="disabled")
+                    b3.configure(state="active" , bg=color[0] , command=guess_gui)
+                    arithd = False
+                else:
+                    showinfo("Sucess" , "Answer is correct")
+                    button.configure(bg=color[1] , state="disabled")
+                    b3.configure(state="active" , bg=color[0] , command=guess_gui)
+                    arithd = True 
+            elif operation == "-":
+                if not ans == str(n1-n2):
+                    showerror("Error" , "Answer is not correct")
+                    button.configure(bg=color[1] , state="disabled")
+                    b3.configure(state="active" , bg=color[0] , command=guess_gui)
+                    arithd = False
+                else:
+                    showinfo("Sucess" , "Answer is correct")
+                    button.configure(bg=color[1] , state="disabled")
+                    b3.configure(state="active" , bg=color[0] , command=guess_gui)
+                    arithd = True
+            elif operation == "*":
+                if not ans == str(n1*n2):
+                    showerror("Error" , "Answer is not correct")
+                    button.configure(bg=color[1] , state="disabled")
+                    b3.configure(state="active" , bg=color[0] , command=guess_gui)
+                    arithd = False
+                else:
+                    showinfo("Sucess" , "Answer is correct")
+                    button.configure(bg=color[1] , state="disabled")
+                    b3.configure(state="active" , bg=color[0] , command=guess_gui)
+                    arithd = True
+                    
+    def palindrome(name: str , button: Button , color: list):
+        global palind
+        f3.pack_forget()
+        entry.pack_forget()
+        sbmt.pack_forget()
+        lab.pack_forget()
+        if name == "":
+            showerror("Error" , "No name detected")
+            button.configure(bg = color[1] , state="disabled")
+            palind = False
+        else:
+            if name == name[:: -1]:
+                showinfo("Congratulations" , "The name given above is a palindrome")
+                button.configure(bg = color[1] , state="disable")
+                palind = True
+                b2.configure(bg=colors.colorsyellow[0] , state="active" , command=arithmetic_gui)
+            else:
+                showerror("Error" , "The given name is not a palindrome")
+                button.configure(bg = color[1] , state="disable")
+                b2.configure(bg=colors.colorsyellow[0] , state="active" , command=arithmetic_gui)
+                palind = False
+
+        
 def mines():
     assignednum = randint(1 , 100)
     if assignednum == 1:
@@ -483,6 +647,7 @@ def logic(button: Button , array: list , color: list):
 
 buttonplayt.configure(command=play_start)
 buttonplayg.configure(command=play_start_game)
+buttonuc.configure(command=pange_frame)
 button33.configure(command=three_three)
 button44.configure(command=four_four)
 button55.configure(command=five_five)
