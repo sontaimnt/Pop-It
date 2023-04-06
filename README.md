@@ -15,6 +15,8 @@ A Pop It game written in tkinter
 
 **Pange:-** A game containing of 3 challenges and solving them pops the game)
 
+**Parith:-** A game in which you have to solve math problem depending on the color and then the pop it is popped[WIP]
+
 # System Requirements:-
 
 - Disk Space:- 32MB
