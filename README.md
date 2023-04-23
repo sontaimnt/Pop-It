@@ -17,6 +17,10 @@ A Pop It game written in tkinter
 
 **Parith:-** A game in which you have to solve math problem depending on the color and then the pop it is popped[WIP]
 
+# todo:-
+
+- [ ] clean up code
+
 # System Requirements:-
 
 - Disk Space:- 32MB
