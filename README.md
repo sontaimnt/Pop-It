@@ -4,9 +4,8 @@ This branch is about the Pop It 0.2 Development branch. Here we will contribute 
 
 # TODO:-
 
-- [ ] Instead of buttons add a circular icon label to each button using `tkfontawesome`
+- [ ] Instead of defining 25 different arrays using `button1["bg"]` extract the background and change accordingly
 - [ ] Refactor code like defining buttons everywhere, use `pady` and `padx` instead of `\n`
 
 # Changelog:-
 
-- Python 3.10 above is unsupported because `tkfontawesome` refuses to build using Python 3.11 while using pip
