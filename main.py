@@ -30,7 +30,7 @@ buttonplayg.pack(in_=game)
 n2 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
 n2.pack(in_=game)
 
-buttonab = Button(text="About"  , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1" , command=lambda:showinfo("About" , "Pop-It Nightly \n https://github.com/sontaimnt/Pop-It \n \n Copyright sontaimnt 2023"))
+buttonab = Button(text="About"  , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1" , command=lambda:showinfo("About" , "Pop-It 0.2 Development Copy \n https://github.com/sontaimnt/Pop-It/tree/0.2-build \n \n Copyright sontaimnt 2023"))
 buttonab.pack(in_=game)
 
 n6 = Label(text="\n\n\n" ,  bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 8))
