@@ -10,8 +10,6 @@ root.resizable(False , False)
 
 root.configure(bg="gray10")
 
-val = False
-
 game = Frame(root , width=375 , height=375 , bg="gray10")
 game.pack()
 
@@ -23,9 +21,6 @@ buttonplayt.pack(in_=game)
 
 buttonplayg = Button(text="Play(with games)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
 buttonplayg.pack(in_=game, pady=10)
-
-n2 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
-n2.pack(in_=game)
 
 buttonab = Button(text="About"  , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1" , command=lambda:showinfo("About" , "Pop-It 0.2 Development Copy \n https://github.com/sontaimnt/Pop-It/tree/0.2-build \n \n Copyright sontaimnt 2023"))
 buttonab.pack(in_=game)
@@ -42,10 +37,6 @@ button55t = Button(text="5x5(Triangular)" , bg="gray10" , fg="antiquewhite1" , f
 
 buttonpluck = Button(text="Pluck(Luck Determiner)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
 buttonuc = Button(text="Pange(3 Challenges)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
-
-n3 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
-n4 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
-n5 = Label(text="\n" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro" , 2))
 
 b1p = [False]
 b2p = [False]
@@ -74,56 +65,42 @@ b24p = [False]
 b25p = [False]
 
 def play_start():
-    n1.pack_forget()
-    n2.pack_forget()
     buttonab.pack_forget()
     buttonex.pack_forget()
     buttonplayt.pack_forget()
     buttonplayg.pack_forget()
-    n6.pack_forget()
-    starttext.configure(text="\n Select the toy for playing \n ")
-    button33.pack()
-    n1.pack()
-    button44.pack()
-    n2.configure(text="\n" , font=("Source Code Pro",2))
-    n2.pack()
-    button55.pack()
-    n3.pack()
-    button33t.pack()
-    n4.pack()
-    button44t.pack()
-    n5.pack()
-    button55t.pack()
+    #n6.pack_forget()
+    starttext.configure(text="Select the toy for playing")
+    button33.pack(pady=5)
+    button44.pack(pady=5)
+    button55.pack(pady=5)
+    
+    button33t.pack(pady=5)
+    #n4.pack()
+    button44t.pack(pady=5)
+    #n5.pack()
+    button55t.pack(pady=5)
 
-def play_start_game():
-    n1.pack_forget()
-    n2.pack_forget()
+def play_start_game():  
     buttonab.pack_forget()
     buttonex.pack_forget()
     buttonplayt.pack_forget()
     buttonplayg.pack_forget()
-    n6.pack_forget()
-    starttext.configure(text="\n Select the game for playing \n ")
+    starttext.configure(text="\n Select the game for playing")
     buttonpluck.configure(width=22 , command=pweep_frame)
-    buttonpluck.pack()
-    n3.pack()
+    buttonpluck.pack(pady=5)
     buttonuc.configure(width=22)
-    buttonuc.pack()
+    buttonuc.pack(pady=5)
 
 def three_three():
     global b1 , b2 , b3 , b4 , b5 , b6 , b7 , b8 , b9 , b1p , b2p , b3p , b4p , b5p , b6p , b7p , b8p , b9p
-    starttext.configure(text="\n Click the buttons to start popping \n" , font=("Source Code Pro",12))
+    starttext.configure(text="\n Click the buttons to start popping" , font=("Source Code Pro",12))
     button33.pack_forget()
     button44.pack_forget()
     button55.pack_forget()
     button33t.pack_forget()
     button44t.pack_forget()
     button55t.pack_forget()
-    n1.pack_forget()
-    n2.pack_forget()
-    n3.pack_forget()
-    n4.pack_forget()
-    n5.pack_forget()
     gframe = Frame(root , width=345 , height=345)
     gframe.pack()
     f1 = Frame(root , width=115 , height=300 , bg=colors.colorsred[0])
@@ -153,7 +130,7 @@ def three_three():
 
 def three_three_t():
     global b1 , b2 , b3 , b4 , b5 , b6 
-    starttext.configure(text="\n Click the buttons to start popping \n" , font=("Source Code Pro" , 12))
+    starttext.configure(text="\n Click the buttons to start popping" , font=("Source Code Pro" , 12))
     button33t.pack_forget()
     button33.pack_forget()
     button44.pack_forget()
@@ -161,11 +138,6 @@ def three_three_t():
     button33t.pack_forget()
     button44t.pack_forget()
     button55t.pack_forget()
-    n1.pack_forget()
-    n2.pack_forget()
-    n3.pack_forget()
-    n4.pack_forget()
-    n5.pack_forget()
     gframe = Frame(root , width=345 , height=345 , bg="grey10")
     gframe.pack()
     f1 = Frame(root , width=345 , height=115 , bg=colors.colorsred[0])
@@ -189,18 +161,13 @@ def three_three_t():
 
 def four_four():
     global b1 , b2 , b3 , b4 , b5 , b6 , b7 , b8 , b9 , b10 , b11 , b12 , b13 , b14 , b15 , b16
-    starttext.configure(text="\n Click the buttons to start popping \n" , font=("Source Code Pro",12))
+    starttext.configure(text="\n Click the buttons to start popping" , font=("Source Code Pro",12))
     button33.pack_forget()
     button44.pack_forget()
     button55.pack_forget()
     button33t.pack_forget()
     button44t.pack_forget()
     button55t.pack_forget()
-    n1.pack_forget()
-    n2.pack_forget()
-    n3.pack_forget()
-    n4.pack_forget()
-    n5.pack_forget()
     gframe = Frame(root , width=345 , height=345)
     gframe.pack()
     f1 = Frame(root , width=86 , height=300 , bg=colors.colorsred[0])
@@ -246,18 +213,13 @@ def four_four():
 
 def four_four_t():
     global b1 , b2 , b3 , b4 , b5 , b6 , b7 , b8 , b9 , b10
-    starttext.configure(text="\n Click the buttons to start popping \n" , font=("Source Code Pro",12))
+    starttext.configure(text="\n Click the buttons to start popping" , font=("Source Code Pro",12))
     button33.pack_forget()
     button44.pack_forget()
     button55.pack_forget()
     button33t.pack_forget()
     button44t.pack_forget()
     button55t.pack_forget()
-    n1.pack_forget()
-    n2.pack_forget()
-    n3.pack_forget()
-    n4.pack_forget()
-    n5.pack_forget()
     gframe = Frame(root , width=345 , height=345 , bg="gray10")
     gframe.pack()
     f1 = Frame(root , width=345 , height=86 , bg=colors.colorsred[0])  
@@ -291,18 +253,13 @@ def four_four_t():
 
 def five_five():
     global b1 , b2 , b3 , b4 , b5 , b6 , b7 , b8 , b9 , b10 , b11 , b12 , b13 , b14 , b15 , b16
-    starttext.configure(text="\n Click the buttons to start popping \n" , font=("Source Code Pro",12))
+    starttext.configure(text="\n Click the buttons to start popping" , font=("Source Code Pro",12))
     button33.pack_forget()
     button44.pack_forget()
     button55.pack_forget()
     button33t.pack_forget()
     button44t.pack_forget()
     button55t.pack_forget()
-    n1.pack_forget()
-    n2.pack_forget()
-    n3.pack_forget()
-    n4.pack_forget()
-    n5.pack_forget()
     gframe = Frame(root , width=345 , height=345)
     gframe.pack()    
     f1 = Frame(root , width=69 , height=300 , bg=colors.colorsred[0])
@@ -368,18 +325,13 @@ def five_five():
 
 def five_five_t():
     global b1 , b2 , b3 , b4 , b5 , b6 , b7 , b8 , b9 , b10 , b11 , b12 , b13 , b14 , b15
-    starttext.configure(text="\n Click the buttons to start popping \n" , font=("Source Code Pro",12))
+    starttext.configure(text="\n Click the buttons to start popping" , font=("Source Code Pro",12))
     button33.pack_forget()
     button44.pack_forget()
     button55.pack_forget()
     button33t.pack_forget()
     button44t.pack_forget()
     button55t.pack_forget()
-    n1.pack_forget()
-    n2.pack_forget()
-    n3.pack_forget()
-    n4.pack_forget()
-    n5.pack_forget()
     gframe = Frame(root , width=345 , height=345 , bg="gray10")
     gframe.pack()
     f1 = Frame(root , width=345 , height=69 , bg=colors.colorsred[0])  
@@ -426,14 +378,9 @@ def five_five_t():
 def pweep_frame():
     global b1 , b2 , b3 , b4 , b5 , b6 
     buttonuc.pack_forget()
-    n3.pack_forget()
+    
     buttonpluck.pack_forget()
-    starttext.configure(text="\n Click the buttons to know your luck \n" , font=("Source Code Pro" , 12))
-    n1.pack_forget()
-    n2.pack_forget()
-    n3.pack_forget()
-    n4.pack_forget()
-    n5.pack_forget()
+    starttext.configure(text="\n Click the buttons to know your luck" , font=("Source Code Pro" , 12))
     gframe = Frame(root , width=345 , height=345 , bg="grey10")
     gframe.pack()
     f1 = Frame(root , width=345 , height=115 , bg=colors.colorsred[0])
@@ -458,14 +405,8 @@ def pweep_frame():
 def pange_frame():
     global f3 , f4 , b1 , b2 , b3
     buttonuc.pack_forget()
-    n3.pack_forget()
     buttonpluck.pack_forget()
-    starttext.configure(text="\n Click the buttons to accept a challenge \n \n\n\n" , font=("Source Code Pro" , 12))
-    n1.pack_forget()
-    n2.pack_forget()
-    n3.pack_forget()
-    n4.pack_forget()
-    n5.pack_forget()
+    starttext.configure(text="\n Click the buttons to accept a challenge" , font=("Source Code Pro" , 12))
     grame = Frame(width=345 , height=172 , bg="grey10")
     grame.pack()
     f1 = Frame(width=345 , height=86)
@@ -553,7 +494,6 @@ class pange_games():
                 guessd = False
                 showerror("Error" , "Pop It was not popped sucessfully")
 
-
     def check_arithmetic(n1: int , n2: int , operation: str , ans: str , button: Button , color: list):
         global arithd
         f3.pack_forget()
@@ -618,7 +558,6 @@ class pange_games():
                 button.configure(bg = color[1] , state="disable")
                 b2.configure(bg=colors.colorsyellow[0] , state="active" , command=arithmetic_gui)
                 palind = False
-
         
 def mines():
     assignednum = randint(1 , 100)
