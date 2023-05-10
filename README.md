@@ -5,7 +5,7 @@ This branch is about the Pop It 0.2 Development branch. Here we will contribute 
 # TODO:-
 
 - [ ] Instead of defining 25 different arrays using `button1["bg"]` extract the background and change accordingly
-- [ ] Refactor code like defining buttons everywhere, use `pady` and `padx` instead of `\n`
+- [x] Refactor code like defining buttons everywhere, use `pady` and `padx` instead of `\n`
 
 # Changelog:-
 
