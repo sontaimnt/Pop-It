@@ -38,32 +38,6 @@ button55t = Button(text="5x5(Triangular)" , bg="gray10" , fg="antiquewhite1" , f
 buttonpluck = Button(text="Pluck(Luck Determiner)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
 buttonuc = Button(text="Pange(3 Challenges)" , bg="gray10" , fg="antiquewhite1" , font=("Source Code Pro Semibold" , 16) , width=15 , activebackground="gray15" , activeforeground="antiquewhite1")
 
-b1p = [False]
-b2p = [False]
-b3p = [False]
-b4p = [False]
-b5p = [False]
-b6p = [False]
-b7p = [False]
-b8p = [False]
-b9p = [False]
-b10p = [False]
-b11p = [False]
-b12p = [False]
-b13p = [False]
-b14p = [False]
-b15p = [False]
-b16p = [False]
-b17p = [False]
-b18p = [False]
-b19p = [False]
-b20p = [False]
-b21p = [False]
-b22p = [False]
-b23p = [False]
-b24p = [False]
-b25p = [False]
-
 def play_start():
     buttonab.pack_forget()
     buttonex.pack_forget()
@@ -570,13 +544,27 @@ def mines():
     else:
         showerror("Error" , "Better luck next time")
 
-def logic(button: Button , array: list , color: list):
-    if array[len(array)-1] == False:
-        array.append(True)
-        button.configure(bg=color[1])
+def logic(button: Button):
+    if button["bg"] == colors.colorsred[0]:
+        button.configure(bg=colors.colorsred[1])
+    elif button["bg"] == colors.colorsred[1]:
+        button.configure(bg=colors.colorsred[0])
+    elif button["bg"] == colors.colorsyellow[1]:
+        button.configure(bg=colors.colorsyellow[0])
+    elif button["bg"] == colors.colorsyellow[0]:
+        button.configure(bg=colors.colorsyellow[1])
+    elif button["bg"] == colors.colorsgreen[0]:
+        button.configure(bg=colors.colorsgreen[1])
+    elif button["bg"] == colors.colorsgreen[1]:
+        button.configure(bg=colors.colorsgreen[0])
+    elif button["bg"] == colors.colorsblue[0]:
+        button.configure(bg=colors.colorsblue[1])
+    elif button["bg"] == colors.colorsblue[1]:
+        button.configure(bg=colors.colorsblue[0])
+    elif button["bg"] == colors.colorspurple[1]:
+        button.configure(bg=colors.colorspurple[0])
     else:
-        array.append(False)
-        button.configure(bg=color[0])
+        button.configure(bg=colors.colorspurple[1])
 
 buttonplayt.configure(command=play_start)
 buttonplayg.configure(command=play_start_game)
