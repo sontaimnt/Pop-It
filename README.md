@@ -4,8 +4,14 @@ This branch is about the Pop It 0.2 Development branch. Here we will contribute 
 
 # TODO:-
 
-- [ ] Instead of defining 25 different arrays using `button1["bg"]` extract the background and change accordingly
+- [x] Instead of defining 25 different arrays using `button1["bg"]` extract the background and change accordingly
 - [x] Refactor code like defining buttons everywhere, use `pady` and `padx` instead of `\n`
+- [ ] Work on circular Pop It's 
+
 
 # Changelog:-
+
+- refactor logic() function
+- remove \n in order for padding
+
 
